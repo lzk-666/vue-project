@@ -23,8 +23,8 @@ module.exports = {
     ],
     module: {
         rules: [
-            { test: /\.css$/, use: ['style-loader','css-loader' ] },
-            { test: /\.less$/, use: ['style-loader','less-loader', 'css-loader' ] },
+            { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+            { test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader'] },
             { test: /\.js$/, use: 'babel-loader', exclude: /node_modules/ },
             //图片小于7631字节时：url为二进制，大于时：图片哈希值6位-文件本身名字.文件后缀名
             { test: /\.(jpg|png|gif|bmp|jpeg)$/, use: 'url-loader?limit=7631&name=[hash:8]-[name].[ext]' },
