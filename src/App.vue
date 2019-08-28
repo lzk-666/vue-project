@@ -27,8 +27,8 @@
                 </router-link>
             </nav>
 
-            <!-- mui -->
-            <mt-header fixed title="淘淘小店"></mt-header>
+            <!-- mui顶部标题栏 -->
+            <mt-header fixed title="我的项目"></mt-header>
         </div>
     </div>
 </template>
@@ -41,6 +41,7 @@ export default {
     .app-content {
         padding-top:40px;
         overflow-x: hidden;
+        padding-bottom:50px;
     }
     /* 组件切换动画 */
     .v-enter,

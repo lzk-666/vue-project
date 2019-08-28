@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- 轮播图 -->
     <mt-swipe :auto="4000">
       <mt-swipe-item v-for="(item,index) in lunboList" :key="index">
         <img :src="item" />
@@ -8,16 +9,16 @@
     <!-- 九宫格 -->
     <ul class="mui-table-view mui-grid-view mui-grid-9">
       <li class="mui-table-view-cell mui-media mui-col-xs-4">
-        <a href="#">
+        <routerLink to="/home/news">
           <img src="../../img/menu1.png" />
           <div class="mui-media-body">新闻资讯</div>
-        </a>
+        </routerLink>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4">
-        <a href="#">
+        <router-link to="/home/picture">
           <img src="../../img/menu2.png" />
           <div class="mui-media-body">图片分享</div>
-        </a>
+        </router-link>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4">
         <a href="#">
@@ -47,6 +48,7 @@
   </div>
 </template>
 <script>
+// 导入Toast弹框
 import { Toast } from "mint-ui";
 export default {
   data() {
@@ -59,7 +61,7 @@ export default {
   },
   methods: {
     getLunbotu() {
-      this.axios.get("/api/getLunbo.json").then(res => {
+      this.axios.get("api/getLunbo.json").then(res => {
         if (res.data.status === 0) {
           this.lunboList = res.data.message;
         } else {
