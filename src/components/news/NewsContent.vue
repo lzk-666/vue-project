@@ -12,7 +12,7 @@
     <!-- 新闻内容 -->
     <div v-html="newsContent.content"></div>
     <!-- 评论组件 -->
-    <commentBox :newsid="id"></commentBox>
+    <commentBox :fatherID="id"></commentBox>
   </div>
 </template>
 <script>
@@ -22,7 +22,7 @@ export default {
   data() {
     return {
       newsContent: "",
-      //将请求的参数记录下来
+      //将路由中的请求参数记录下来
       id: this.$route.params.id
     };
   },

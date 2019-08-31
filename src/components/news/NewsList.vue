@@ -4,7 +4,7 @@
     <ul class="mui-table-view">
       <li class="mui-table-view-cell mui-media" v-for="item in newsList" :key="item.id">
         <!--  -->
-        <router-link :to="'/home/newscontent/'+item.id">
+        <router-link :to="'/home/news/content/'+item.id">
           <img class="mui-media-object mui-pull-left" :src="item.img_url" />
           <div class="mui-media-body">
             {{item.title}}
@@ -24,7 +24,7 @@ import { Toast } from "mint-ui";
 export default {
   data() {
     return {
-      newsList: []
+      newsList: []//新闻列表
     };
   },
   created() {

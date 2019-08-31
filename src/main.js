@@ -24,9 +24,28 @@ import axios from 'axios';
 import VueAxios from 'vue-axios';
 Vue.use(VueAxios, axios)
 
-//导入mui的样式文件
+//导入mui
 import './lib/mui-master/dist/css/mui.css'
 import './lib/mui-master/dist/css/icons-extra.css'
+
+// 导入图片懒加载
+import { Lazyload } from 'mint-ui';
+Vue.use(Lazyload);
+
+
+// 导入vue-preview缩略图插件
+import VuePreview from 'vue-preview';
+// Vue.use(VuePreview);
+Vue.use(VuePreview, {
+    mainClass: 'pswp--minimal--dark',
+    barsSize: {top:0, bottom:0},
+    captionEl: false,
+    fullscreenEl: true,
+    shareEl: false,
+    bgOpacity: 0.85,
+    tapToClose: true,
+    tapToToggleControls: false
+})
 
 const vm = new Vue({
     el: '#app',

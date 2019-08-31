@@ -32,7 +32,7 @@ export default {
     created(){
         this.getCommentData();
     },
-    props:['newsid'],// 获得父组件传过来的新闻id
+    props:['fatherID'],// 获得父组件传过来的id
     methods: {
         // 获取评论信息
         getCommentData() {
@@ -40,9 +40,9 @@ export default {
                 this.pageindex++;
                 let arr = res.data;
                 let data = arr.find(val=>{
-                     return val.id == this.newsid
+                     return val.id == this.fatherID
                 })
-                // 判断新闻总数有没有超过一页没有的话隐藏加载更多按钮
+                // 判断数据总数有没有超过一页没有的话隐藏加载更多按钮
                 if(data.message.length<=10){
                     this.flag = false;
                 }
@@ -55,7 +55,7 @@ export default {
                 Toast('加载评论失败...')
             })
         },
-        //加载更多按钮渲染下一页的新闻
+        //点击加载更多按钮,渲染下一页的评论
         addPage() {
             this.getCommentData()
         },
