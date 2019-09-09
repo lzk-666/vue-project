@@ -11,7 +11,7 @@
             :class="['mui-control-item',item.id==0?'mui-active':'']"
             v-for="item in category"
             :key="item.id"
-            @click="getPicturesinfo(item.id)"
+            @tap="getPicturesinfo(item.id)"
           >{{item.title}}</a>
         </div>
       </div>
@@ -49,8 +49,6 @@
 <script>
 // 导入mui.js文件
 import mui from "../../lib/mui-master/dist/js/mui.min.js";
-
-// import ScrollBooster from '../../lib/scrollbooster.min.js'
 
 export default {
   //要让模板渲染到页面上即类渲染完成后才初始化滑动功能

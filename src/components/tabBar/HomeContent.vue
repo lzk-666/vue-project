@@ -1,11 +1,14 @@
 <template>
   <div>
     <!-- 轮播图 -->
-    <mt-swipe :auto="4000">
+    <!-- <mt-swipe :auto="4000">
       <mt-swipe-item v-for="(item,index) in lunboList" :key="index">
         <img :src="item" />
       </mt-swipe-item>
-    </mt-swipe>
+    </mt-swipe> -->
+
+    <swiper :lunboList="lunboList"></swiper>
+
     <!-- 九宫格 -->
     <ul class="mui-table-view mui-grid-view mui-grid-9">
       <li class="mui-table-view-cell mui-media mui-col-xs-4">
@@ -21,10 +24,10 @@
         </router-link>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4">
-        <a href="#">
+        <router-link to="/home/goods">
           <img src="../../img/menu3.png" />
           <div class="mui-media-body">商品购买</div>
-        </a>
+        </router-link>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4">
         <a href="#">
@@ -50,6 +53,10 @@
 <script>
 // 导入Toast弹框
 import { Toast } from "mint-ui";
+
+//导入轮播图组件
+import lunbo from '../subcomponents/swiper.vue'
+
 export default {
   data() {
     return {
@@ -69,28 +76,14 @@ export default {
         }
       });
     }
+  },
+  components:{
+    swiper:lunbo
   }
 };
 </script>
 <style lang="less" scoped>
-.mint-swipe {
-  height: 300px;
-  .mint-swipe-item {
-    &:nth-child(1) {
-      background-color: red;
-    }
-    &:nth-child(2) {
-      background-color: purple;
-    }
-    &:nth-child(3) {
-      background-color: skyblue;
-    }
-    img {
-      width: 100%;
-      height: 100%;
-    }
-  }
-}
+
 .mui-table-view.mui-grid-view {
   border: 0;
   background-color:white;
