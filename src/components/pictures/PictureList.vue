@@ -111,7 +111,7 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-// 去掉滑动时候的报错
+// 去掉滑动时候的警告报错
 * {
   touch-action: pan-y;
 }

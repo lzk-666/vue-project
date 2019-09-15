@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="padding:16px">
         <!-- 加载子组件中的评论组件 -->
         <comment :fatherID='id'></comment>
     </div>

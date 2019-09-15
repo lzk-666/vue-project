@@ -22,7 +22,6 @@ export default {
                         return val.id==this.id
                     })
                     this.desc = newData;
-                    console.log(this.desc)
                 }
             })
         }

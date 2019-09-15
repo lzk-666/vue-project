@@ -1,13 +1,14 @@
 <template>
-  <!-- 商品数量box子组件-->
+  <!-- 商品数量box子组件 -->
   <div class="goodsNumber">
-    购买数量:
-    <div class="mui-numbox" data-numbox-min="1">
+    <div class="mui-numbox" data-numbox-min="1" style="height:24px;">
       <button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
       <input
         id="test"
         class="mui-input-numbox"
         type="number"
+        :value="initCount"
+        readonly
         @change="numberChange"
         ref="numberBox"
       />
@@ -24,25 +25,14 @@ export default {
     },
     methods: {
         numberChange() {
-            let number = this.$refs.numberBox.value;
-            this.$emit('fuc',number)
+            // 把父组件传过来的商品id和商品数量作为一个对象,传给vuex中的updataNumber来修改全局数据shopCar的值
+            let number = this.$refs.numberBox.value
+            let goodsInfo = {id:this.goodsID,number:number}
+            this.$store.commit("updataNumber",goodsInfo)
         }
     },
-    // 商品库存这项数据是由axios请求的，设置商品最大值的时候需要依赖此数据。
-    // 设置最大值的时候axios请求的数据还没到,所以maxgoods==undefine。
-    // 可以通过watch方式监听数据的变化来解决
-    props:['maxgoods'],
-    watch:{
-        // 通过mui里的js API来控制最大值
-        maxgoods(newVal,oldVal) {
-            mui(".mui-numbox").numbox().setOption('max',newVal)
-        }
-    }
-
+    props:['initCount','goodsID']
 }
 </script>
 <style lang="less" scoped>
-.goodsNumber {
-  margin-bottom: 10px;
-}
 </style>
