@@ -13,7 +13,7 @@
             <div class="info">
               <div class="price">¥{{item.sell_price}}</div>
               <goods-number2 :initCount="item.count" :goodsID="item.id"></goods-number2>
-              <div class="del" @click="delGoods(item.id,index)">删除</div> <!-- index删除这个页面的carInfo中的信息 item.id删除vuex全局数据中的信息 -->
+              <div class="del" @click="delGoods(item.id,index)">删</div> <!-- index删除这个页面的carInfo中的信息 item.id删除vuex全局数据中的信息 -->
             </div>
           </div>
         </div>
@@ -100,6 +100,7 @@ export default {
       display:flex;
       flex-direction: column;
       justify-content: space-around;
+      flex-basis: 100px;
       h4 {
         font-size:13px;
       }
@@ -126,6 +127,11 @@ export default {
       font-size: 16px;
       font-weight: 900;
       padding:4px;
+    }
+  }
+  @media screen and (max-width:340px){
+    .mui-card {
+      margin:1px;
     }
   }
 
